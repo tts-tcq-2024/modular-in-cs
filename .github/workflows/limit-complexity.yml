@@ -1,4 +1,4 @@
-name: Limit CCN
+name: Limit CCN and File Size
 
 on:
   push:
@@ -18,3 +18,7 @@ jobs:
 
     - name: Limit complexity
       run: $HOME/.local/bin/lizard --CCN 3
+      
+    - name: Check size
+      run: |
+        $HOME/.local/bin/lizard | bash .github/workflows/lpar.sh 50
